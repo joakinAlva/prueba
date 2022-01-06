@@ -1,0 +1,52 @@
+<div>
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8 col-sm-10">
+      <div class="alert alert-danger" *ngIf="authenticationError" jhiTranslate="login.messages.error.authentication" data-cy="loginError">
+        <strong></strong>
+      </div>
+      <form class="form" role="form"  [formGroup]="loginForm">
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            name="Nombre completo"
+            id="username"
+            placeholder="Nombre completo"
+            formControlName="username"
+            #username
+            data-cy="username"
+          />
+          <input
+            type="text"
+            class="form-control"
+            name="Fecha de Nacimiento"
+            id="nacimiento"
+            placeholder="Fecha de Nacimiento"
+            formControlName="nacimiento"
+            #username
+            data-cy="nacimiento"
+          />
+        </div>
+        <div class="form-group">
+        	<p>{{resultado}}</p>
+        </div>
+        <button (click)="calcularEdad()" class="btn btn-primary"data-cy="submit">Calcular Edad</button>
+
+        <div class="form-group">
+          <label for="filtro" >Buscar Filtro</label>
+          <input
+            type="text"
+            class="form-control"
+            name="filtro"
+            id="filtro"
+            placeholder="Ingresa un filtro"
+            formControlName="filtro"
+            data-cy="filtro"
+          />
+        </div>
+
+        <button (click) = "filtro()" class="btn btn-primary" data-cy="submit">Buscar</button>
+      </form>
+    </div>
+  </div>
+</div>
